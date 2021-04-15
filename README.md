@@ -42,11 +42,11 @@
 | Column                  | Type       | Options                        |
 | ------                  | ---------- | ------------------------------ |
 | delivery_postcode       | string     | null: false                    |
-| delivery_prefecture_id  | integer    | null: false                    |
+| shipping_area_id        | integer    | null: false                    |
 | delivery_municipality   | string     | null: false                    |
 | delivery_address        | string     | null: false                    |
 | delivery_building       | string     |                                |
-| delivery_phone          | integer    | null: false                    |
+| delivery_phone          | string     | null: false                    |
 | purchase_record         | references | null: false, foreign_key: true |
 
 ### Association
