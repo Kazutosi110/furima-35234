@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="bWLEUHIZ3dCRjE5xOHWe" name="ページ1">
-        <mxGraphModel dx="448" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="466" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -18,7 +18,7 @@
                 <mxCell id="11" value="itemsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="520" y="460" width="270" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="image（ActiveStorageで実装）&#10;items_name（string型,NOT NULL）&#10;items_information（text型,NOT NULL）&#10;category_id（integer型,NOT NULL）&#10;items_condition_id（integer型,NOT NULL）&#10;delivery_charge_id（integer型,NOT NULL）&#10;shipping_area_id（integer型,NOT NULL）&#10;shipping_date_id（integer型,NOT NULL）&#10;price（integer型,NOT NULL）&#10;user（references型）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
+                <mxCell id="12" value="image（ActiveStorageで実装）&#10;name（string型,NOT NULL）&#10;information（text型,NOT NULL）&#10;category_id（integer型,NOT NULL）&#10;items_condition_id（integer型,NOT NULL）&#10;delivery_charge_id（integer型,NOT NULL）&#10;shipping_area_id（integer型,NOT NULL）&#10;shipping_date_id（integer型,NOT NULL）&#10;price（integer型,NOT NULL）&#10;user（references型）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="26" width="270" height="154" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="purchasesテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
