@@ -4,14 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :encrypted_password, format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
-
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' 
+  
   with_options presence: true do
     validates :nickname
-    validates :last_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "last_name Full-width characters"}
-    validates :first_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "first_name Full-width characters"}
-    validates :kana_last, format: {with: /\A[ァ-ヶー－]+\z/, message: "kana_last Full-width katakana characters"}
-    validates :kana_first, format: {with: /\A[ァ-ヶー－]+\z/, message: "kana_first Full-width katakana characters"}
+    validates :last_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "Full-width characters"}
+    validates :first_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "Full-width characters"}
+    validates :kana_last, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
+    validates :kana_first, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
     validates :birthday
   end
 
