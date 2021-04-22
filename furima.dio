@@ -24,7 +24,7 @@
                 <mxCell id="19" value="purchasesテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="80" y="210" width="270" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="delivery_postcode（string型,NOT NULL）&#10;shipping_area_id（integer型,NOT NULL）&#10;delivery_municipality（string型,NOT NULL）&#10;delivery_address（string型,NOT NULL）&#10;delivery_building（string型）&#10;delivery_phone（string型,NOT NULL）&#10;purchases_record（references型）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="19" vertex="1">
+                <mxCell id="20" value="delivery_postcode（string型,NOT NULL）&#10;shipping_area_id（integer型,NOT NULL）&#10;delivery_municipality（string型,NOT NULL）&#10;delivery_address（string型,NOT NULL）&#10;delivery_building（string型）&#10;delivery_phone（string型,NOT NULL）&#10;record（references型）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="19" vertex="1">
                     <mxGeometry y="26" width="270" height="114" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="recordsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
