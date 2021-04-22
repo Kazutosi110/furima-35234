@@ -9,7 +9,7 @@ class RecordPurchase
     validates :delivery_address
     validates :delivery_postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :shipping_area_id, numericality: {other_than: 1, message: "can't be blank"}
-    validates :delivery_phone, format: {with: /\A\d{10}\z|\A\d{11}\z/ , message: "is invalid."}
+    validates :delivery_phone, format: {with: /\A\d{10,11}\z/ , message: "is invalid."}
   end
 
   def save
