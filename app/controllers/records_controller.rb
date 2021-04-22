@@ -3,6 +3,7 @@ class RecordsController < ApplicationController
 
   def index
     @record_purchase = RecordPurchase.new
+    @item = Item.find(params[:item_id])
   end
 
   def new

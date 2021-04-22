@@ -13,7 +13,7 @@ class RecordPurchase
   end
 
   def save
-    Record = Record.create(user_id: user_id, items_id: items_id)
-    Purchase.create(delivery_municipality: delivery_municipality, delivery_address: delivery_address, postal_code: postal_code, shipping_area_id: shipping_area_id, delivery_phone: delivery_phone, :delivery_building: delivery_building, record_id: record.id)
+    record = Record.create(user_id: user_id, item_id: item_id)
+    Purchase.create(delivery_municipality: delivery_municipality, delivery_address: delivery_address, postal_code: postal_code, shipping_area_id: shipping_area_id, delivery_phone: delivery_phone, delivery_building: delivery_building, record_id: record.id)
   end
 end
