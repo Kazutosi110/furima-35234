@@ -51,7 +51,7 @@
 
 ### Association
 
-belongs_to :record
+- belongs_to :record
 
 ## records テーブル
 
