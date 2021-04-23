@@ -6,5 +6,6 @@ FactoryBot.define do
     delivery_address { '46-48' }
     delivery_building { '東京ハイツ' }
     delivery_phone { '09012345678' }
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end

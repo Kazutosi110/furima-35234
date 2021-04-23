@@ -1,8 +1,10 @@
 class RecordPurchase
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :delivery_postcode, :shipping_area_id, :delivery_municipality, :delivery_address, :delivery_building, :delivery_phone
+  attr_accessor :token
 
   with_options presence: true do
+    validates :token
     validates :user_id
     validates :item_id
     validates :delivery_municipality
