@@ -5,6 +5,9 @@ class RecordsController < ApplicationController
     @item = Item.find(params[:item_id])
     @record_purchase = RecordPurchase.new
     if current_user.id == @item.user_id
+      redirect_to root_path and return
+    end
+    if @item.record.present?
       redirect_to root_path
     end
   end
