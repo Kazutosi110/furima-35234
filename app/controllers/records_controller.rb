@@ -4,12 +4,9 @@ class RecordsController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @record_purchase = RecordPurchase.new
-    if current_user.id == @item.user_id
-      redirect_to root_path and return
-    end
-    if @item.record.present?
-      redirect_to root_path
-    end
+    redirect_to root_path and return if current_user.id == @item.user_id
+
+    redirect_to root_path if @item.record.present?
   end
 
   def new
@@ -30,16 +27,17 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record_purchase).permit(:delivery_municipality, :delivery_address, :delivery_postcode, :shipping_area_id, :delivery_phone, :delivery_building).merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
-  end
-
-  def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-          amount: @item.price,  
-          card: record_params[:token],    
-          currency: 'jpy'                 
+    params.require(:record_purchase).permit(:delivery_municipality, :delivery_address, :delivery_postcode, :shipping_area_id, :delivery_phone, :delivery_building).merge(
+      user_id: current_user.id, item_id: @item.id, token: params[:token]
     )
   end
 
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: record_params[:token],
+      currency: 'jpy'
+    )
+  end
 end
