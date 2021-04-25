@@ -28,12 +28,9 @@ class RecordsController < ApplicationController
   end
 
   def move_to_root
-    if current_user.id == @item.user_id
-      redirect_to root_path and return
-    end
-    if @item.record.present?
-      redirect_to root_path
-    end
+    redirect_to root_path and return if current_user.id == @item.user_id
+
+    redirect_to root_path if @item.record.present?
   end
 
   def pay_item
