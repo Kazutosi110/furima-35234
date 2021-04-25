@@ -68,10 +68,22 @@ RSpec.describe RecordPurchase, type: :model do
         expect(@record_purchase.errors.full_messages).to include('Delivery phone is invalid.')
       end
 
+      it 'delivery_phoneが12桁以上だと購入できない' do
+        @record_purchase.delivery_phone = '090123456789'
+        @record_purchase.valid?
+        expect(@record_purchase.errors.full_messages).to include('Delivery phone is invalid.')
+      end
+
       it 'userが紐付いていないと購入できない' do
         @record_purchase.user_id = nil
         @record_purchase.valid?
         expect(@record_purchase.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'itemが紐づいていないと購入できない' do
+        @record_purchase.item_id = nil
+        @record_purchase.valid?
+        expect(@record_purchase.errors.full_messages).to include("Item can't be blank")
       end
 
       it 'tokenが空では登録できない' do
