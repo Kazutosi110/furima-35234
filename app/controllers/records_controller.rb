@@ -9,9 +9,6 @@ class RecordsController < ApplicationController
     redirect_to root_path if @item.record.present?
   end
 
-  def new
-  end
-
   def create
     @item = Item.find(params[:item_id])
     @record_purchase = RecordPurchase.new(record_params)
