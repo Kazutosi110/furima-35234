@@ -24,10 +24,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if @item.record.present?
+    move_to_root_path
   end
 
   def update
+    move_to_root_path
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -36,6 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    move_to_root_path
     @item.destroy
     redirect_to root_path
   end
@@ -53,5 +55,9 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless current_user.id == @item.user_id
+  end
+
+  def move_to_root_path
+    redirect_to root_path if @item.record.present?
   end
 end
