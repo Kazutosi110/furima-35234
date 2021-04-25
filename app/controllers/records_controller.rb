@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :group_item, only: [:index, :create]
 
   def index
     @item = Item.find(params[:item_id])
@@ -36,5 +37,9 @@ class RecordsController < ApplicationController
       card: record_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def group_item
+    @item = Item.find(params[:item_id])
   end
 end
