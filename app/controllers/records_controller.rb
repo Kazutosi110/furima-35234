@@ -3,16 +3,13 @@ class RecordsController < ApplicationController
   before_action :group_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @record_purchase = RecordPurchase.new
-    redirect_to root_path and return if current_user.id == @item.user_id
-
-    redirect_to root_path if @item.record.present?
+    move_to_root
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @record_purchase = RecordPurchase.new(record_params)
+    move_to_root
     if @record_purchase.valid?
       pay_item
       @record_purchase.save
@@ -28,6 +25,15 @@ class RecordsController < ApplicationController
     params.require(:record_purchase).permit(:delivery_municipality, :delivery_address, :delivery_postcode, :shipping_area_id, :delivery_phone, :delivery_building).merge(
       user_id: current_user.id, item_id: @item.id, token: params[:token]
     )
+  end
+
+  def move_to_root
+    if current_user.id == @item.user_id
+      redirect_to root_path and return
+    end
+    if @item.record.present?
+      redirect_to root_path
+    end
   end
 
   def pay_item
